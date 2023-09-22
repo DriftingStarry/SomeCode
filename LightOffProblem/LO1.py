@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: gbk -*-
 import random 
 '''
 这是报废的垃圾函数，被一行代码代替了
