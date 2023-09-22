@@ -1,7 +1,7 @@
 # -*- coding: gbk -*-
 import random 
 '''
-ÕâÊÇ±¨·ÏµÄÀ¬»øº¯Êı£¬±»Ò»ĞĞ´úÂë´úÌæÁË
+è¿™æ˜¯æŠ¥åºŸçš„åƒåœ¾å‡½æ•°ï¼Œè¢«ä¸€è¡Œä»£ç ä»£æ›¿äº†
 def spawn(x,y):
     lis = []
     for i in range(y):
@@ -10,21 +10,21 @@ def spawn(x,y):
             lis[i][j] = random.randint(0,1)
     return lis
 '''
-#Éú³ÉÊı×élis
+#ç”Ÿæˆæ•°ç»„lis
 x = int(input("x"))
 y = int(input("y"))
 lis = [[random.randint(0,1) for i in range(x)] for j in range(y)]
 lisT = [[0 for i in range(x)] for j in range(y)]
-print("Ä¿±ê",lisT)
-print("Éú³É",lis)
-#´òÓ¡Êı×élis
+print("ç›®æ ‡",lisT)
+print("ç”Ÿæˆ",lis)
+#æ‰“å°æ•°ç»„lis
 def Prlis(lis):
     for i in range(len(lis)):
         tmp=''
         for j in range(len(lis[i])):
             tmp+=str(lis[i][j])
         print(tmp)
-#¸Ä±ä×´Ì¬
+#æ”¹å˜çŠ¶æ€
 def change(x,y,lis):
     lis[x][y] = 1 - lis[x][y]
     if x == 0:
@@ -32,22 +32,22 @@ def change(x,y,lis):
     
         
         
-#¼ì²é×ø±êÕıÈ·¶È
+#æ£€æŸ¥åæ ‡æ­£ç¡®åº¦
 def check(x1,y1,x,y):
     if x1 >= x or y1 >= y:
         return False
     else:
         return True
-#Ö÷³ÌĞò
+#ä¸»ç¨‹åº
 while True:
-    print("ÏÖÔÚµÄÊı×éÎª£º")
+    print("ç°åœ¨çš„æ•°ç»„ä¸ºï¼š")
     Prlis(lis)
-    tmp = input("ÊäÈë£¨×ø±êÓÃ,¸ô¿ª¡£ÊäÈë114514½áÊø£©£º")
+    tmp = input("è¾“å…¥ï¼ˆåæ ‡ç”¨,éš”å¼€ã€‚è¾“å…¥114514ç»“æŸï¼‰ï¼š")
     if tmp == "114514":
-        print("Ç¿ÖÆ½áÊø")
+        print("å¼ºåˆ¶ç»“æŸ")
         break
     elif lis == lisT:
-        print("³É¹¦")
+        print("æˆåŠŸ")
         break
     else:
         tmp = tmp.split(",")
@@ -56,7 +56,7 @@ while True:
         if check(x1,y1,x,y):
             change(x1,y1,lis)
         else:
-            print("ÊäÈëÓĞÎó£¡ÖØĞÂÊäÈë")
+            print("è¾“å…¥æœ‰è¯¯ï¼é‡æ–°è¾“å…¥")
 
         
 
