@@ -1,4 +1,3 @@
-# -*- coding: gbk -*-
 import random 
 '''
 这是报废的垃圾函数，被一行代码代替了
@@ -10,7 +9,7 @@ def spawn(x,y):
             lis[i][j] = random.randint(0,1)
     return lis
 '''
-#生成数组lis
+#生成数组lis和目标数组lisT
 x = int(input("x"))
 y = int(input("y"))
 lis = [[random.randint(0,1) for i in range(x)] for j in range(y)]
@@ -26,11 +25,17 @@ def Prlis(lis):
             tmp+=str(lis[i][j])
         print(tmp)
 
-def change(x,y,lis):
+def change(x1,y1,lis,x,y):
     #改变状态
-    lis[x][y] = 1 - lis[x][y]
-    
-    
+    lis[x1][y1] = 1 - lis[x1][y1]
+    if x1 > 0:
+        lis[x1-1][y1] = 1 - lis[x1-1][y1]
+    if x1 < x-1:
+        lis[x1+1][y1] = 1 - lis[x1+1][y1]
+    if y1 > 0:
+        lis[x1][y1-1] = 1 - lis[x1][y1-1]
+    if y1 < y-1:
+        lis[x1][y1+1] = 1 - lis[x1][y1+1]
         
         
 
@@ -57,7 +62,7 @@ while True:
         x1 = int(tmp[0])
         y1 = int(tmp[1])
         if check(x1,y1,x,y):
-            change(x1,y1,lis)
+            change(x1,y1,lis,x,y)
         else:
             print("输入有误！重新输入")
 
