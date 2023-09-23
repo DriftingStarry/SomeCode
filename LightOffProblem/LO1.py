@@ -1,14 +1,4 @@
 import random 
-'''
-这是报废的垃圾函数，被一行代码代替了
-def spawn(x,y):
-    lis = []
-    for i in range(y):
-        lis.append([0]*x)
-        for j in range(x):
-            lis[i][j] = random.randint(0,1)
-    return lis
-'''
 #生成数组lis和目标数组lisT
 x = int(input("x"))
 y = int(input("y"))
