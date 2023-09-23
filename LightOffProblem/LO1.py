@@ -27,21 +27,21 @@ def Prlis(lis):
 
 def change(x1,y1,lis,x,y):
     #改变状态
-    lis[x1][y1] = 1 - lis[x1][y1]
+    lis[y1][x1] = 1 - lis[y1][x1]
     if x1 > 0:
-        lis[x1-1][y1] = 1 - lis[x1-1][y1]
+        lis[y1][x1-1] = 1 - lis[y1][x1-1]
     if x1 < x-1:
-        lis[x1+1][y1] = 1 - lis[x1+1][y1]
-    if y1 > 0:
-        lis[x1][y1-1] = 1 - lis[x1][y1-1]
-    if y1 < y-1:
-        lis[x1][y1+1] = 1 - lis[x1][y1+1]
+        lis[y1][x1+1] = 1 - lis[y1][x1+1]
+    if x1 > 0:
+        lis[y1-1][x1] = 1 - lis[y1-1][x1]
+    if x1 < y-1:
+        lis[y1+1][x1] = 1 - lis[y1+1][x1]
         
         
 
 def check(x1,y1,x,y):
     #检查坐标正确度
-    if x1 >= x or y1 >= y:
+    if x1 >= x or y1 >= y or x<0 or y<0:
         return False
     else:
         return True
@@ -58,12 +58,15 @@ while True:
         print("成功")
         break
     else:
-        tmp = tmp.split(",")
-        x1 = int(tmp[0])
-        y1 = int(tmp[1])
-        if check(x1,y1,x,y):
-            change(x1,y1,lis,x,y)
-        else:
+        try:
+            tmp = tmp.split(",")
+            x1 = int(tmp[0])
+            y1 = int(tmp[1])
+            if check(x1,y1,x,y):
+                change(x1,y1,lis,x,y)
+            else:
+                print("输入有误！重新输入")
+        except:
             print("输入有误！重新输入")
 
         
