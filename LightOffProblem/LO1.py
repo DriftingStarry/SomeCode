@@ -58,12 +58,15 @@ while True:
         print("成功")
         break
     else:
-        tmp = tmp.split(",")
-        x1 = int(tmp[0])
-        y1 = int(tmp[1])
-        if check(x1,y1,x,y):
-            change(x1,y1,lis,x,y)
-        else:
+        try:
+            tmp = tmp.split(",")
+            x1 = int(tmp[0])
+            y1 = int(tmp[1])
+            if check(x1,y1,x,y):
+                change(x1,y1,lis,x,y)
+            else:
+                print("输入有误！重新输入")
+        except:
             print("输入有误！重新输入")
 
         
