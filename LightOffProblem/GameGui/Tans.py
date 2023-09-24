@@ -1,7 +1,3 @@
-from distutils.config import PyPIRCCommand
-from imp import release_lock
-from itertools import filterfalse
-from pprint import PrettyPrinter
 import random
 import pygame
 from pygame.locals import QUIT,KEYDOWN
@@ -86,11 +82,12 @@ def click_trans():
         flag = True
         x1,y1 = find_pos(x1,y1)
         print(x1,y1)
-        x2 = int((y1-x0)//50)
-        y2 = int((x1-y0)//50)
+        x2 = int((x1-x0)//50)
+        y2 = int((y1-y0)//50)
         print(x2,y2)
         if check(x2,y2):
             change(x2,y2,lis)
+            time.sleep(0.2)
         
     
 #初始化pygame
@@ -98,6 +95,7 @@ pygame.init()
 screen = pygame.display.set_mode((800,800))
 screen_color = [255,255,255]
 screen.fill(screen_color)
+clock = pygame.time.Clock()
 #主程序
 while True:
     for event in pygame.event.get():
@@ -109,5 +107,6 @@ while True:
     See()
     click_trans()
     pygame.display.update()
+    clock.tick(60)
 
     
