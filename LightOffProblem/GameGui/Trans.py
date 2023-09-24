@@ -102,6 +102,9 @@ while True:
         if event.type in (QUIT,KEYDOWN):
             pygame.quit()
             sys.exit()
+    if lis == lisT:
+        print("成功")
+        break
     screen.fill(screen_color)
     GuiTrans(lis)
     See()
