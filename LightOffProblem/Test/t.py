@@ -2,6 +2,8 @@ import random
 import itertools
 import copy
 
+global rows
+global cols
 rows = 3  # 行数
 cols = 4  # 列数
 # 生成数组lis和目标数组lisT
@@ -20,7 +22,8 @@ def prlis(lis):
         print(tmp)
 
 
-def flip(lis, x, y, rows, cols):
+def flip(lis, x, y):
+    #翻转01
     lis[y][x] = 1 - lis[y][x]
     if y-1 >= 0:
         lis[y-1][x] = 1 - lis[y-1][x]
@@ -33,15 +36,15 @@ def flip(lis, x, y, rows, cols):
     return lis
 
 
-def flip_by_list(lis, fliplist, rows, cols):
+def flip_by_list(lis, fliplist):
     for y in range(len(fliplist)):
         for x in range(len(fliplist[y])):
             if fliplist[y][x] == 1:
-               lis = flip(lis, x, y, rows, cols)
+               lis = flip(lis, x, y)
     return lis
 
 
-def enum(rows, cols):
+def enum():
     # 生成所有可能的元素为0，1的列表
     lists = list(itertools.product([0, 1], repeat=cols))
     # 生成所有可能的二维列表
@@ -49,16 +52,16 @@ def enum(rows, cols):
     return list(list(list(j) for j in i) for i in matrices)
 
 
-def main(lis, rows, cols):
-    for result in enum(rows, cols):
+def main(lis):
+    for result in enum():
         temp = copy.deepcopy(lis)
-        temp = flip_by_list(temp, result, rows, cols)
+        temp = flip_by_list(temp, result)
         if temp == lisT:
             return result
 
 
 print("初始：")
 prlis(lis)
-out = main(lis, rows, cols)
+out = main(lis)
 print("结果：")
 prlis(out)
